@@ -3,7 +3,7 @@ import { ref } from 'vue'
 export function useFetch<T>(url: string) {
   const data = ref<T | null>(null)
   const error = ref<string | null>(null)
-  const loading = ref(true)
+  const loading = ref(false)
 
   async function fetchData() {
     try {
@@ -22,7 +22,5 @@ export function useFetch<T>(url: string) {
     }
   }
 
-  fetchData()
-
-  return { data, loading, error }
+  return { data, loading, error, fetchData }
 }
