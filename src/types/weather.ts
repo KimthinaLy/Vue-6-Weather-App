@@ -1,4 +1,4 @@
-export interface CurrentWeather {
+export interface CurrentWeatherData {
   temperature_2m: number
   weathercode: number
 }
@@ -12,6 +12,6 @@ export interface DailyForecast {
 
 export interface WeatherResponse {
   timezone: string
-  current: CurrentWeather
+  current: CurrentWeatherData
   daily: DailyForecast
 }
