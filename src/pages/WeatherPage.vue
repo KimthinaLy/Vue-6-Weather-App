@@ -15,8 +15,12 @@ const inputLocation = ref('')
 async function onSearch() {
     weatherLoading.value = true
     try {
+        weatherError.value = null
+        weatherData.value = null
         const geo = useFetch<GeocodingResponse>(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(inputLocation.value)}&count=1`)
         await geo.fetchData()
+        console.log('geo data:', geo.data.value)
+        console.log('geo error:', geo.error.value)
         if (geo.error.value) {
             weatherError.value = geo.error.value
             return
